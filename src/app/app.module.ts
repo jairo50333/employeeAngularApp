@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './services/employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

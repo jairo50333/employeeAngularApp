@@ -1,19 +1,23 @@
 
+<div>
+  <input type="number" [(ngModel)]="idEmployee">
+  <button [disabled]="disableButton" (click)="getEmployees()">Search</button>
 
-<input type="number" [(ngModel)]="idEmployee" >
-<button (click)="getEmployees()">Search</button>
+  <app-loading *ngIf="loaderService.isLoading$ | async"></app-loading>
 
+  <table *ngIf="employees.length >0">
+    <tr>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Anual Salary</th>
+      <th>Age</th>
+    </tr>
 
-<table *ngIf="employees.length >0">
-  <tr>
-    <th>Name</th>
-    <th>Salary</th>
-    <th>Age</th>
-  </tr>
-
-  <tr *ngFor="let employee of employees">
-    <td>{{employee.employee_name}}</td>
-    <td>{{employee.employee_salary}}</td>
-    <td>{{employee.employee_age}}</td>
-  </tr>
-</table>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.employee_name}}</td>
+      <td>{{employee.employee_salary}}</td>
+      <td>{{employee.employee_anual_salary}}</td>
+      <td>{{employee.employee_age}}</td>
+    </tr>
+  </table>
+</div>
